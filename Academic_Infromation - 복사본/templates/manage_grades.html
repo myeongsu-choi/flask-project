@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Academic Management - Dashboard{% endblock %}
+{% block content %}
+<head>
+    <link href="{{ url_for('static', filename='css/manage_grades.css') }}" rel="stylesheet">
+</head>
+<header>
+    <h1>학사 정보 시스템 - <span id="role-display"></span></h1>
+</header>
+<hr>
+
+<main>
+    <div class="form-container">
+        <h2>성적 입력</h2>
+        <form id="grade-form">
+            <!-- 기존 성적 입력 필드들 -->
+        </form>
+
+        <h2>성적 조회 및 수정</h2>
+        <div class="form-group">
+            <label for="semester-select">조회할 학기</label>
+            <input type="text" id="semester-select" placeholder="예: 2023-1" required>
+            <button id="fetch-grades-button">성적 조회</button>
+        </div>
+
+        <!-- 조회된 성적 리스트 표시 -->
+        <ul id="grades-list"></ul>
+
+        <!-- 성적 수정 입력 폼 -->
+        <div id="edit-grade-container" style="display: none;">
+            <h3>성적 수정</h3>
+            <form id="edit-grade-form">
+                <div class="form-group">
+                    <label for="edit-score">성적 점수</label>
+                    <input type="number" id="edit-score" name="score" step="0.1" max="4.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-grade">성적 학점</label>
+                    <input type="text" id="edit-grade" name="grade" required>
+                </div>
+                <button type="submit">수정 완료</button>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="{{ url_for('static', filename='js/manage_grades.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Academic Management - Dashboard{% endblock %}
+{% block content %}
+<head>
+    <link href="{{ url_for('static', filename='css/dashboard.css') }}" rel="stylesheet">
+</head>
+<header>
+    <h1>학사 정보 시스템 - <span id="role-display"></span></h1>
+</header>
+<hr>
+
+<main class="dashboard-content">
+    <!-- 역할별로 다른 콘텐츠를 표시할 영역 -->
+    <div id="student-section" class="role-section" style="display:none;">
+        <h2 id="welcome-message"></h2>
+        <p>수강 과목과 성적을 확인할 수 있습니다.</p>
+        <button id="fetch-grades">성적 조회</button>
+        <button id="logout-button">로그아웃</button>
+        
+        <!-- 성적 데이터를 표시할 섹션 -->
+        <div id="grades-section" style="display:none;">
+            <h3>내 성적</h3>
+            <ul id="grades-list"></ul>
+        </div>
+    </div>
+
+    <div id="professor-section" class="role-section" style="display: none;">
+        <h2 id="welcome-message"></h2>
+        <p>담당 과목의 성적을 입력 및 수정할 수 있습니다.</p>
+    
+        <!-- 성적 입력/수정 페이지 링크 -->
+        <button id="create-grades">성적 입력</button>
+        <button id="manage-grades">성적 수정</button>
+        <button id="professor-logout-button">로그아웃</button>
+    </div>
+</main>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

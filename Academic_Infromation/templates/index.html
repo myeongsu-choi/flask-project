@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+</head>
+
+<header>
+    <h1>학사 정보 시스템</h1>
+</header>
+<main>
+    <div class="welcome-message">
+        환영합니다!
+    </div>
+    <div class="auth-links">
+        <a href="{{ url_for('login')}}" class="auth-button">로그인하시겠습니까?</a>
+        <a href="" class="auth-button">회원가입하시겠습니까?</a>
+    </div>
+</main>
+{% endblock %}

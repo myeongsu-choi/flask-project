@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Academic Management - Dashboard{% endblock %}
+{% block content %}
+<head>
+    <link href="{{ url_for('static', filename='css/create_grades.css') }}" rel="stylesheet">
+</head>
+<header>
+    <h1>학사 정보 시스템 - <span id="role-display"></span></h1>
+</header>
+<hr>
+
+<main>
+    <div class="form-container">
+        <form id="grade-form">
+            <div class="form-group">
+                <label for="student_id">학생 ID</label>
+                <input type="text" id="student_id" name="student_id" required>
+            </div>
+            <div class="form-group">
+                <label for="subject_code">과목 코드</label>
+                <input type="text" id="subject_code" name="subject_code" required>
+            </div>
+            <div class="form-group">
+                <label for="subject_name">과목 이름</label>
+                <input type="text" id="subject_name" name="subject_name" required>
+            </div>
+            <div class="form-group">
+                <label for="semester">학기</label>
+                <input type="text" id="semester" name="semester" required>
+            </div>
+            <div class="form-group">
+                <label for="score">성적 점수</label>
+                <input type="number" id="score" name="score" step="0.1" max="4.5" required>
+            </div>
+            <div class="form-group">
+                <label for="grade">성적 학점</label>
+                <input type="text" id="grade" name="grade" required>
+            </div>
+            <button type="submit">성적 제출</button>
+        </form>
+    </div>
+</main>
+<script src="{{ url_for('static', filename='js/create_grades.js') }}"></script>
+{% endblock %}
